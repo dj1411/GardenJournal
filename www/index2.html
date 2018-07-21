@@ -32,27 +32,30 @@
     <body onload="main()" class="w3-text-theme">
         
         <!-- Header bar -->
-        <div class="w3-bar w3-theme-dark w3-xlarge w3-card">
+        <section class="w3-bar w3-theme-dark w3-xlarge w3-card">
             <a id="buttonSidebar" class="w3-bar-item w3-button" href="javascript:sidebarShow()"><i class="fa fa-bars"></i></a>
             <span class="w3-bar-item" id="title"></span>
-        </div>
+            <section id="secToolbar" class="w3-right">
+                <a id="buttonSettings" class="w3-bar-item w3-button w3-ripple" href="settings.html"><i class="fas fa-cog"></i></a>
+            </section>                
+        </section>
 
         <!-- floating (+) button -->
         <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px"><i class="fa fa-plus"></i></button>
         
         <!-- Sidebar -->
-        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
-            <div class="w3-bar-item w3-border-bottom">
+        <section id="secSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
+            <section class="w3-bar-item w3-border-bottom">
                 <img src="img/anonymous.png" width="75px" class="w3-circle w3-margin-right">
                 <span id="labelName">New User</span>
                 <a class="w3-right" href="javascript:sidebarHide()"><i class="fas fa-times"></i></a>
-            </div>
-            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple"><i class="fas fa-align-left w3-padding"></i>Journal</a>
-            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple"><i class="far fa-images w3-padding"></i>Gallery</a>
-            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple"><i class="fas fa-leaf w3-padding"></i>Garden</a>
-            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple"><i class="fas fa-comments w3-padding"></i>Community</a>
-        </div>
-        <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></div>
+            </section>
+            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="index2.html"><i class="fas fa-align-left w3-padding"></i>Journal</a>
+            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="gallery.html"><i class="far fa-images w3-padding"></i>Gallery</a>
+            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="garden.html"><i class="fas fa-leaf w3-padding"></i>Garden</a>
+            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="community.html"><i class="fas fa-comments w3-padding"></i>Community</a>
+        </section>
+        <section id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></section>
         
         <!-- journal page -->
         <section class="w3-padding">
