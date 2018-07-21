@@ -24,6 +24,8 @@
 
 function main() {
     setStyle();
+    
+    var db = new DB();
 }
 
 function setStyle() {
