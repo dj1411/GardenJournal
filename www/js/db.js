@@ -1,7 +1,7 @@
 function Plant(id, name) {
     /* default parameters */
     this.id = id;
-    this.timestamp = "";
+    this.timestamp = moment().toString();
     this.deleted = false;
     
     /* class specific parameters */
@@ -17,7 +17,7 @@ function Log() {
     /* class specific parameters */
     this.event = "";
     this.date = "";
-    this.image = "";
+    this.photo = "";
 }
 
 function DB() {

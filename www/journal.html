@@ -50,24 +50,25 @@
                 <span id="labelName">New User</span>
                 <a class="w3-right" href="javascript:sidebarHide()"><i class="fas fa-times"></i></a>
             </section>
-            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="index2.html"><i class="fas fa-align-left w3-padding"></i>Journal</a>
+            <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="journal.html"><i class="fas fa-align-left w3-padding"></i>Journal</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="gallery.html"><i class="far fa-images w3-padding"></i>Gallery</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="garden.html"><i class="fas fa-leaf w3-padding"></i>Garden</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="community.html"><i class="fas fa-comments w3-padding"></i>Community</a>
         </section>
         <section id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></section>
         
-        <!-- journal page -->
+        <!-- journal section -->
         <section class="w3-padding">
             
             <!-- Dropdown -->
-            <select id="selectPlantList" style="width: 100%" class="w3-input">
+            <select id="selectPlantList" style="width: 100%" class="w3-input" onchange="onchangePlantList()">
                 <option value="Plant1">Plant1</option>
                 <option value="Plant2">Plant2</option>
                 <option value="Plant3">Plant3</option>
                 <option value="hr">-----</option>
-                <option value="all">All plants</option>
+                <option value="all">Show all plants</option>
                 <option value="add">Add new plant</option>
+                <option value="remove">Remove a plant</option>
             </select>
             
             <!-- journal table -->
@@ -91,12 +92,34 @@
             
         </section>
         
+        <!-- modal Add Plant -->
+        <section id="modalAddPlant" class="w3-modal">
+            <section class="w3-modal-content w3-text-theme" style="max-width:600px">
+                <section class="w3-container w3-theme w3-large w3-padding">Add a new plant</section>
+                <form id="formAddPlant" class="w3-container">
+                    <p>
+                        <label>Name</label>
+                        <section class="w3-cell-row">
+                            <span class="w3-cell"><input id="labelPlantName" type="text" class="w3-input" required></span>
+                            <a class="w3-cell w3-button"><i class="fas fa-camera"></i></a>
+                        </section>
+                    </p>
+                    <p>
+                        <section class="w3-bar">
+                            <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="document.getElementById('modalAddPlant').style.display='none'" value="Cancel" />
+                            <button type="submit" class="w3-button w3-theme w3-right" style="width:45%">Submit</button>
+                        </section>
+                    </p>
+                </form>
+            </section>
+        </section>        
+        
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/moment/moment.min.js"></script>
         <script type="text/javascript" src="js/const.js"></script>
         <script type="text/javascript" src="js/db.js"></script>
-        <script type="text/javascript" src="js/index2.js"></script>
+        <script type="text/javascript" src="js/journal.js"></script>
     </body>
 </html>

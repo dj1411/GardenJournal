@@ -24,14 +24,28 @@
 
 function main() {
     setStyle();
-    
     var db = new DB();
-    db.addPlant("someplant1");
-    db.addPlant("someplant2");
-    db.addPlant("someplant3");
-    db.addPlant("someplant4");
-    
-    console.log( db );
+}
+
+function onchangePlantList() {
+    switch(document.getElementById("selectPlantList").value) {
+        case "hr":
+            /* nothing to do */
+            break;
+            
+        case "all":
+            break;
+            
+        case "add":
+            document.getElementById('modalAddPlant').style.display='block';
+            break;
+            
+        case "remove":
+            break;
+            
+        default:
+            break;
+    }
 }
 
 function setStyle() {
