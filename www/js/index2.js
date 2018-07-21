@@ -31,3 +31,13 @@ function setStyle() {
     document.title = APP_NAME;
     document.getElementById("title").innerText = APP_NAME;    
 }
+
+function sidebarShow() {
+	document.getElementById("divSidebar").style.display = "block";
+	document.getElementById("overlaySidebar").style.display = "block";
+}
+
+function sidebarHide() {
+	document.getElementById("divSidebar").style.display = "none";
+	document.getElementById("overlaySidebar").style.display = "none";
+}
