@@ -22,9 +22,11 @@
  * SOFTWARE.
  *******************************************************************************/
 
+var db;
+
 function main() {
     setStyle();
-    var db = new DB();
+    db = new DB();
 }
 
 function onchangePlantList() {
@@ -49,7 +51,7 @@ function onchangePlantList() {
 }
 
 function onsubmitAddPlant() {
-    
+    db.addPlant(document.getElementById("textPlantName").value);
 }
 
 function setStyle() {
