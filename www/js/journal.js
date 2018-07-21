@@ -48,6 +48,10 @@ function onchangePlantList() {
     }
 }
 
+function onsubmitAddPlant() {
+    
+}
+
 function setStyle() {
     /* set the app name and version */
     document.title = APP_NAME;
