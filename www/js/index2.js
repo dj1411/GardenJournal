@@ -26,6 +26,7 @@ function main() {
     setStyle();
     
     var db = new DB();
+    db.addPlant("someplant");
 }
 
 function setStyle() {

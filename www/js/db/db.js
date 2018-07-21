@@ -1,5 +1,7 @@
 function DB() {
     this.arrPlants = [];
-    
-    alert("db init");
+
+    this.addPlant = function(name) {
+        alert(name);
+    }
 }
