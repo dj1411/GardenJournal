@@ -26,7 +26,12 @@ function main() {
     setStyle();
     
     var db = new DB();
-    db.addPlant("someplant");
+    db.addPlant("someplant1");
+    db.addPlant("someplant2");
+    db.addPlant("someplant3");
+    db.addPlant("someplant4");
+    
+    console.log( db );
 }
 
 function setStyle() {
