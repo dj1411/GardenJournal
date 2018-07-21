@@ -22,5 +22,5 @@
  * SOFTWARE.
  *******************************************************************************/
 
-const APP_NAME = "Plant Growth Tracker";
+const APP_NAME = "Garden Journal";
 const APP_VER = "0.1.0";

@@ -28,7 +28,6 @@
         <link rel="stylesheet" type="text/css" href="css/w3/w3.css" />
         <link rel="stylesheet" type="text/css" href="css/w3/w3-theme-green.css" />
         <link rel="stylesheet" type="text/css" href="css/fontawesome-free-5.1.0-web/css/all.css" />
-        <link rel="stylesheet" type="text/css" href="css/index2.css" />
     </head>
     <body onload="main()" class="w3-text-theme">
         
@@ -38,7 +37,21 @@
         </div>
 
         <!-- floating (+) button -->
-        <button id="buttonAddPlant" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple"><i class="fa fa-plus"></i></button>
+        <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px"><i class="fa fa-plus"></i></button>
+        
+        <!-- journal page -->
+        <section class="w3-padding">
+            
+            <!-- Dropdown -->
+            <select id="selectPlantList" style="width: 100%" class="w3-theme-light w3-border-theme">
+                <option value="Plant1">Plant1</option>
+                <option value="Plant2">Plant2</option>
+                <option value="Plant3">Plant3</option>
+                <option value="hr">-----</option>
+                <option value="add">Add new plant</option>
+            </select>
+            
+        </section>
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
