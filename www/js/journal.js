@@ -51,8 +51,15 @@ function onchangePlantList() {
     }
 }
 
+function onclickAddLog() {
+    document.getElementById("modalAddLog").style.display = "block";
+}
+
 function onsubmitAddPlant() {
     db.addPlant(document.getElementById("textPlantName").value);
+}
+
+function onsubmitAddLog() {
 }
 
 function refreshPlantListDropdown(dropdown) {

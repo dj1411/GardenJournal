@@ -41,7 +41,7 @@
         </div>
 
         <!-- floating (+) button -->
-        <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px"><i class="fa fa-plus"></i></button>
+        <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px" onclick="onclickAddLog()"><i class="fa fa-plus"></i></button>
         
         <!-- Sidebar -->
         <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
@@ -118,6 +118,38 @@
                 </form>
             </div>
         </div>      
+        
+        <!-- modal Add Log -->
+        <div id="modalAddLog" class="w3-modal">
+            <div class="w3-modal-content w3-text-theme" style="max-width:600px">
+                <div class="w3-container w3-theme w3-large w3-padding">Log a new event</div>
+                <form id="formAddLog" class="w3-container" onsubmit="onsubmitAddLog()">
+                    
+                    <p><label><b>Plant name: </b></label>
+                    <label>Rose</label></p>
+
+                    <p><label><b>Date: </b></label>
+                    <label>22nd Mar 2018</label></p>
+                    
+                    <p class="w3-cell-row">
+                        <label class="w3-cell"><b>Event:</b></label>
+                        <input id="textEvent" class="w3-input w3-cell-row" type="text">
+                    </p>
+
+                    <p><label><b>Photo: </b></label></p>
+                    <div class="w3-display-container w3-border" style="width: 150px; height: 150px">
+                        <img src="img/dummyplant.png" style="max-height: 150px; max-width: 150px;">
+                        <a class="w3-button w3-display-bottomright"><i class="fas fa-camera"></i></a>
+                    </div>
+                    
+                    <div class="w3-bar w3-margin-top w3-margin-bottom">
+                        <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="document.getElementById('modalAddLog').style.display='none'" value="Cancel" />
+                        <button type="submit" class="w3-button w3-theme w3-right" style="width:45%">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>  
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
