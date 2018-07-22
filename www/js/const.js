@@ -24,3 +24,5 @@
 
 const APP_NAME = "Garden Journal";
 const APP_VER = "0.1.0";
+
+const HEIGHT_JOURNAL_ROW = 50;
