@@ -61,7 +61,7 @@
         <div class="w3-padding">
             
             <!-- Dropdown (dummy entries) -->
-            <select id="selectPlantList" style="width: 100%" class="w3-input" onchange="onchangePlantList()">
+            <select id="selectPlantListJournal" style="width: 100%" class="w3-input" onchange="onchangePlantList()">
                 <option value="Plant1">Plant1</option>
                 <option value="Plant2">Plant2</option>
                 <option value="Plant3">Plant3</option>
@@ -125,11 +125,19 @@
                 <div class="w3-container w3-theme w3-large w3-padding">Log a new event</div>
                 <form id="formAddLog" class="w3-container" onsubmit="onsubmitAddLog()">
                     
-                    <p><label><b>Plant name: </b></label>
-                    <label>Rose</label></p>
+                    <p class="w3-cell-row">
+                        <label class="w3-cell"><b>Plant name: </b></label>
+                        <select id="selectPlantListAddLog" class="w3-input w3-cell" onchange="onchangePlantList()">
+                            <option value="Plant1">Plant1</option>
+                            <option value="Plant2">Plant2</option>
+                            <option value="Plant3">Plant3</option>
+                        </select>                        
+                    </p>
 
-                    <p><label><b>Date: </b></label>
-                    <label>22nd Mar 2018</label></p>
+                    <p class="w3-cell-row">
+                        <label class="w3-cell"><b>Date: </b></label>
+                        <label class="w3-cell">22nd Mar 2018</label>
+                    </p>
                     
                     <p class="w3-cell-row">
                         <label class="w3-cell"><b>Event:</b></label>

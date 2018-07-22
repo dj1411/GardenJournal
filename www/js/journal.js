@@ -27,11 +27,11 @@ var db;
 function main() {
     setStyle();
     db = new DB();
-    refreshPlantListDropdown(document.getElementById("selectPlantList"));    
+    refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));    
 }
 
 function onchangePlantList() {
-    switch(document.getElementById("selectPlantList").value) {
+    switch(document.getElementById("selectPlantListJournal").value) {
         case "hr":
             /* nothing to do */
             break;
@@ -53,6 +53,10 @@ function onchangePlantList() {
 
 function onclickAddLog() {
     document.getElementById("modalAddLog").style.display = "block";
+    
+    /* populate the plant list dropdown */
+    refreshPlantListDropdown(document.getElementById("selectPlantListAddLog"));
+    document.getElementById("selectPlantListAddLog").value = document.getElementById("selectPlantListJournal").value;
 }
 
 function onsubmitAddPlant() {
@@ -65,38 +69,21 @@ function onsubmitAddLog() {
 function refreshPlantListDropdown(dropdown) {
     /* clear the dropdown */
     var len = dropdown.length;
-    for (var i = 0; i < len; i++)
-        dropdown.remove(0);
+    for (var i = 0; i < len; i++) {
+        if (dropdown.value == "hr")
+            break;
+        else
+            dropdown.remove(0);
+    }
 
     /* fill with plant list */
-        for( var i=0; i<db.arrPlants.length; i++ ) {
-            var option = document.createElement("option");
-            option.text = db.arrPlants[i].name;
-            option.value = db.arrPlants[i].id.toString();
-            dropdown.add(option);
-        }
-
-    /* fill with default entries */
-    
-    var option = document.createElement("option");
-    option.text = "-------";
-    option.value = "hr";
-    dropdown.add(option);
-    
-    option = document.createElement("option");
-    option.text = "Show all plants";
-    option.value = "all";
-    dropdown.add(option);
-    
-    option = document.createElement("option");
-    option.text = "Add new plant";
-    option.value = "add";
-    dropdown.add(option);
-    
-    option = document.createElement("option");
-    option.text = "Remove a plant";
-    option.value = "remove";
-    dropdown.add(option);
+    for (var i = 0; i < db.arrPlants.length; i++) {
+        var option = document.createElement("option");
+        option.text = db.arrPlants[i].name;
+        option.value = db.arrPlants[i].id.toString();
+        dropdown.add(option, 0);
+    }
+    dropdown.selectedIndex = 0;
 }
 
 function setStyle() {
