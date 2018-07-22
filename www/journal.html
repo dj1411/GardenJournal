@@ -96,20 +96,25 @@
         <section id="modalAddPlant" class="w3-modal">
             <section class="w3-modal-content w3-text-theme" style="max-width:600px">
                 <section class="w3-container w3-theme w3-large w3-padding">Add a new plant</section>
-                <form id="formAddPlant" class="w3-container w3-padding" onsubmit="onsubmitAddPlant()">
-                    <label>Name</label>
-                    <section class="w3-cell-row">
-                        <input id="textPlantName" type="text" class="w3-input w3-cell" required />
-                        <a class="w3-cell w3-button"><i class="fas fa-camera"></i></a>
-                    </section>
+                <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddPlant()">
+                    
+                    <p><label><b>Name</b></label>
+                    <input id="textPlantName" class="w3-input" type="text"></p>
 
+                    <p><label><b>Photo</b></label></p>
+                    <section class="w3-display-container w3-border" style="width: 150px; height: 150px">
+                        <img src="img/dummyplant.png" style="max-height: 150px; max-width: 150px;">
+                        <a class="w3-button w3-display-bottomright"><i class="fas fa-camera"></i></a>
+                    </section>
+                    
                     <section class="w3-bar w3-margin-top w3-margin-bottom">
                         <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="document.getElementById('modalAddPlant').style.display='none'" value="Cancel" />
                         <button type="submit" class="w3-button w3-theme w3-right" style="width:45%">Submit</button>
                     </section>
+
                 </form>
             </section>
-        </section>        
+        </section>      
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
