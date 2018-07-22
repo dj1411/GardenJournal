@@ -22,7 +22,18 @@ function Log() {
 
 function DB() {
     this.arrPlants = new Array();
+    
+    /* load the database from local storage */
+    this.load = function() {
+        var d = localStorage.getItem("arrPlants");
+        if (d != null && d != undefined)
+        {
+            this.arrPlants = JSON.parse(d);
+        }
+    }
 
+    this.load();
+    
     /* save the database to local storage */
     this.save = function() {
         localStorage.setItem("arrPlants", JSON.stringify(this.arrPlants));
