@@ -18,8 +18,7 @@ function Log(id) {
     this.deleted = false;
     
     /* class specific parameters */
-    alert(document.getElementById("dateAddLog").value);
-    this.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD"); // todo bug?? date is reflecting one day before
+    this.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD"); // date is strangely reflecting one day before, but retreive works fine
     this.event = document.getElementById("textEvent").value;
 }
 

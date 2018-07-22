@@ -3,3 +3,4 @@
 
 # Add log
 - adding a log should add a new entry to the journal for the corresponding plant
+- select a different plant and add log again
