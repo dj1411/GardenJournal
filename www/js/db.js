@@ -19,6 +19,7 @@ function Log(id) {
     
     /* class specific parameters */
     alert(document.getElementById("dateAddLog").value);
+    this.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD"); // todo bug?? date is reflecting one day before
     this.event = document.getElementById("textEvent").value;
 }
 
