@@ -22,43 +22,41 @@ function Log() {
 
 function DB() {
     this.arrPlants = new Array();
-    
-    /* load the database from local storage */
-    this.load = function() {
-        var d = localStorage.getItem("arrPlants");
-        if (d != null && d != undefined)
-        {
-            this.arrPlants = JSON.parse(d);
-        }
-    }
-
     this.load();
-    
-    /* save the database to local storage */
-    this.save = function() {
-        localStorage.setItem("arrPlants", JSON.stringify(this.arrPlants));
-    }
-    
-    /* add a plant.
-     * param name = name of the plant
-     */
-    this.addPlant = function (name) {
-        /* calculate id */
-        var id = 0;
-        for (var i = 0; i < this.arrPlants.length + 1; i++) {
-            if (this.arrPlants.findIndex(
-                    function (val) {
-                        return (val.id == i);
-                    }
-                ) == -1)
-                id = i;
-        }
+}
 
-        /* create plant object and add to the array */
-        var plant = new Plant(id, name);
-        this.arrPlants.push(plant);
-        
-        /* save the database to local storage */
-        this.save();
+/* load the database from local storage */
+DB.prototype.load = function () {
+    var d = localStorage.getItem("arrPlants");
+    if (d != null && d != undefined) {
+        this.arrPlants = JSON.parse(d);
     }
+}
+
+/* save the database to local storage */
+DB.prototype.save = function () {
+    localStorage.setItem("arrPlants", JSON.stringify(this.arrPlants));
+}
+
+/* add a plant.
+ * param name = name of the plant
+ */
+DB.prototype.addPlant = function (name) {
+    /* calculate id */
+    var id = 0;
+    for (var i = 0; i < this.arrPlants.length + 1; i++) {
+        if (this.arrPlants.findIndex(
+                function (val) {
+                    return (val.id == i);
+                }
+            ) == -1)
+            id = i;
+    }
+
+    /* create plant object and add to the array */
+    var plant = new Plant(id, name);
+    this.arrPlants.push(plant);
+
+    /* save the database to local storage */
+    this.save();
 }
