@@ -61,11 +61,11 @@ function setStyle() {
 }
 
 function sidebarShow() {
-	document.getElementById("secSidebar").style.display = "block";
+	document.getElementById("divSidebar").style.display = "block";
 	document.getElementById("overlaySidebar").style.display = "block";
 }
 
 function sidebarHide() {
-	document.getElementById("secSidebar").style.display = "none";
+	document.getElementById("divSidebar").style.display = "none";
 	document.getElementById("overlaySidebar").style.display = "none";
 }

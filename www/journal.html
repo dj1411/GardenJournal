@@ -32,33 +32,33 @@
     <body onload="main()" class="w3-text-theme">
         
         <!-- Header bar -->
-        <section class="w3-bar w3-theme-dark w3-xlarge w3-card">
+        <div class="w3-bar w3-theme-dark w3-xlarge w3-card">
             <a id="buttonSidebar" class="w3-bar-item w3-button" href="javascript:sidebarShow()"><i class="fa fa-bars"></i></a>
             <span class="w3-bar-item" id="title"></span>
-            <section id="secToolbar" class="w3-right">
+            <div id="divToolbar" class="w3-right">
                 <a id="buttonSettings" class="w3-bar-item w3-button w3-ripple" href="settings.html"><i class="fas fa-cog"></i></a>
-            </section>                
-        </section>
+            </div>                
+        </div>
 
         <!-- floating (+) button -->
         <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px"><i class="fa fa-plus"></i></button>
         
         <!-- Sidebar -->
-        <section id="secSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
-            <section class="w3-bar-item w3-border-bottom">
+        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
+            <div class="w3-bar-item w3-border-bottom">
                 <img src="img/anonymous.png" width="75px" class="w3-circle w3-margin-right">
                 <span id="labelName">New User</span>
                 <a class="w3-right" href="javascript:sidebarHide()"><i class="fas fa-times"></i></a>
-            </section>
+            </div>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="journal.html"><i class="fas fa-align-left w3-padding"></i>Journal</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="gallery.html"><i class="far fa-images w3-padding"></i>Gallery</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="garden.html"><i class="fas fa-leaf w3-padding"></i>Garden</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="community.html"><i class="fas fa-comments w3-padding"></i>Community</a>
-        </section>
-        <section id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></section>
+        </div>
+        <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></div>
         
-        <!-- journal section -->
-        <section class="w3-padding">
+        <!-- journal div -->
+        <div class="w3-padding">
             
             <!-- Dropdown -->
             <select id="selectPlantList" style="width: 100%" class="w3-input" onchange="onchangePlantList()">
@@ -90,31 +90,31 @@
                 </tr>
             </table>
             
-        </section>
+        </div>
         
         <!-- modal Add Plant -->
-        <section id="modalAddPlant" class="w3-modal">
-            <section class="w3-modal-content w3-text-theme" style="max-width:600px">
-                <section class="w3-container w3-theme w3-large w3-padding">Add a new plant</section>
+        <div id="modalAddPlant" class="w3-modal">
+            <div class="w3-modal-content w3-text-theme" style="max-width:600px">
+                <div class="w3-container w3-theme w3-large w3-padding">Add a new plant</div>
                 <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddPlant()">
                     
                     <p><label><b>Name</b></label>
                     <input id="textPlantName" class="w3-input" type="text"></p>
 
                     <p><label><b>Photo</b></label></p>
-                    <section class="w3-display-container w3-border" style="width: 150px; height: 150px">
+                    <div class="w3-display-container w3-border" style="width: 150px; height: 150px">
                         <img src="img/dummyplant.png" style="max-height: 150px; max-width: 150px;">
                         <a class="w3-button w3-display-bottomright"><i class="fas fa-camera"></i></a>
-                    </section>
+                    </div>
                     
-                    <section class="w3-bar w3-margin-top w3-margin-bottom">
+                    <div class="w3-bar w3-margin-top w3-margin-bottom">
                         <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="document.getElementById('modalAddPlant').style.display='none'" value="Cancel" />
                         <button type="submit" class="w3-button w3-theme w3-right" style="width:45%">Submit</button>
-                    </section>
+                    </div>
 
                 </form>
-            </section>
-        </section>      
+            </div>
+        </div>      
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
