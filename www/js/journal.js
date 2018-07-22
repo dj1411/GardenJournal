@@ -52,11 +52,15 @@ function onchangePlantList() {
 }
 
 function onclickAddLog() {
+    /* display the modal */
     document.getElementById("modalAddLog").style.display = "block";
     
     /* populate the plant list dropdown */
     refreshPlantListDropdown(document.getElementById("selectPlantListAddLog"));
     document.getElementById("selectPlantListAddLog").value = document.getElementById("selectPlantListJournal").value;
+    
+    /* fill the date */
+    document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
 }
 
 function onsubmitAddPlant() {
