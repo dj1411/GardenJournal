@@ -61,32 +61,30 @@
         <div class="w3-padding">
             
             <!-- Dropdown (dummy entries) -->
-            <select id="selectPlantListJournal" style="width: 100%" class="w3-input" onchange="onchangePlantList()">
-                <option value="Plant1">Plant1</option>
-                <option value="Plant2">Plant2</option>
-                <option value="Plant3">Plant3</option>
-                <option value="hr">-----</option>
-                <option value="all">Show all plants</option>
-                <option value="add">Add new plant</option>
-                <option value="remove">Remove a plant</option>
-            </select>
+            <div class="w3-cell-row">
+                <select id="selectPlantListJournal" class="w3-input w3-cell" onchange="onchangePlantList()">
+                    <option value="Plant1">Plant1</option>
+                    <option value="Plant2">Plant2</option>
+                    <option value="Plant3">Plant3</option>
+                </select>
+                <a class="w3-cell w3-button" style="width: 16px" onclick="document.getElementById('modalAddPlant').style.display='block'"><i class="fas fa-plus"></i></a>
+                <a class="w3-cell w3-button" style="width: 16px"><i class="fas fa-minus"></i></a>
+                <a class="w3-cell w3-button" style="width: 16px"><i class="fas fa-pencil-alt"></i></a>
+            </div>
             
             <!-- journal table (dummy entries) -->
             <table id="tableJournal" class="w3-table-all w3-margin-top">
                 <tr class="w3-theme">
-                    <th></th>
                     <th>Date</th>
                     <th>Event</th>
                     <th>Photo</th>
                 </tr>
                 <tr>
-                    <td style="line-height: 50px"><a style="cursor: pointer"><i class="fas fa-pencil-alt"></i></a></td>
                     <td style="line-height: 50px">01/07/2018</td>
                     <td style="line-height: 50px">Sowing seeds</td>
                     <td><img src="img/dummyplant.png" width="50px" height="50px"></td>
                 </tr>
                 <tr>
-                    <td style="line-height: 50px"><a style="cursor: pointer"><i class="fas fa-pencil-alt"></i></a></td>
                     <td style="line-height: 50px">01/07/2018</td>
                     <td style="line-height: 50px">Sowing seeds</td>
                     <td><img src="img/dummyplant.png" width="50px" height="50px"></td>

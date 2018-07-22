@@ -1,11 +1,11 @@
-function Plant(id, name) {
+function Plant(id) {
     /* default parameters */
     this.id = id;
     this.timestamp = moment().toString();
     this.deleted = false;
     
     /* class specific parameters */
-    this.name = name;
+    this.name = document.getElementById("textPlantName").value;
 }
 
 function Log() {
@@ -17,7 +17,6 @@ function Log() {
     /* class specific parameters */
     this.event = "";
     this.date = "";
-    this.photo = "";
 }
 
 function DB() {
@@ -38,23 +37,13 @@ DB.prototype.save = function () {
     localStorage.setItem("arrPlants", JSON.stringify(this.arrPlants));
 }
 
-/* add a plant.
- * param name = name of the plant
- */
-DB.prototype.addPlant = function (name) {
+/* add a plant */
+DB.prototype.addPlant = function () {
     /* calculate id */
-    var id = 0;
-    for (var i = 0; i < this.arrPlants.length + 1; i++) {
-        if (this.arrPlants.findIndex(
-                function (val) {
-                    return (val.id == i);
-                }
-            ) == -1)
-            id = i;
-    }
+    var id = this.arrPlants.length;
 
     /* create plant object and add to the array */
-    var plant = new Plant(id, name);
+    var plant = new Plant(id);
     this.arrPlants.push(plant);
 
     /* save the database to local storage */

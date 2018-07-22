@@ -31,24 +31,6 @@ function main() {
 }
 
 function onchangePlantList() {
-    switch(document.getElementById("selectPlantListJournal").value) {
-        case "hr":
-            /* nothing to do */
-            break;
-            
-        case "all":
-            break;
-            
-        case "add":
-            document.getElementById('modalAddPlant').style.display='block';
-            break;
-            
-        case "remove":
-            break;
-            
-        default:
-            break;
-    }
 }
 
 function onclickAddLog() {
@@ -64,7 +46,7 @@ function onclickAddLog() {
 }
 
 function onsubmitAddPlant() {
-    db.addPlant(document.getElementById("textPlantName").value);
+    db.addPlant();
 }
 
 function onsubmitAddLog() {
@@ -74,18 +56,15 @@ function refreshPlantListDropdown(dropdown) {
     /* clear the dropdown */
     var len = dropdown.length;
     for (var i = 0; i < len; i++) {
-        if (dropdown.value == "hr")
-            break;
-        else
-            dropdown.remove(0);
+        dropdown.remove(0);
     }
 
     /* fill with plant list */
     for (var i = 0; i < db.arrPlants.length; i++) {
         var option = document.createElement("option");
         option.text = db.arrPlants[i].name;
-        option.value = db.arrPlants[i].id.toString();
-        dropdown.add(option, 0);
+        option.value = "id_" + db.arrPlants[i].id.toString();
+        dropdown.add(option, i);
     }
     dropdown.selectedIndex = 0;
 }
