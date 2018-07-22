@@ -23,6 +23,11 @@ function Log() {
 function DB() {
     this.arrPlants = new Array();
 
+    /* save the database to local storage */
+    this.save = function() {
+        localStorage.setItem("arrPlants", JSON.stringify(this.arrPlants));
+    }
+    
     /* add a plant.
      * param name = name of the plant
      */
@@ -41,5 +46,8 @@ function DB() {
         /* create plant object and add to the array */
         var plant = new Plant(id, name);
         this.arrPlants.push(plant);
+        
+        /* save the database to local storage */
+        this.save();
     }
 }
