@@ -50,6 +50,7 @@ function onsubmitAddPlant() {
 }
 
 function onsubmitAddLog() {
+    db.addLog();
 }
 
 function refreshPlantListDropdown(dropdown) {
