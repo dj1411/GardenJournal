@@ -27,7 +27,8 @@ var db;
 function main() {
     setStyle();
     db = new DB();
-    refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));    
+    refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));
+    showLog();
 }
 
 function onchangePlantList() {
@@ -74,6 +75,32 @@ function setStyle() {
     /* set the app name and version */
     document.title = APP_NAME;
     document.getElementById("title").innerText = APP_NAME;    
+}
+
+function showLog() {
+    /* clear and initialize the table */
+    var table = document.getElementById("tableJournal");
+    table.innerHTML = "";
+    var row = table.insertRow(0);
+    var cellDate = row.insertCell(0);
+    var cellEvent = row.insertCell(1);
+    var cellPhoto = row.insertCell(2);
+    cellDate.innerHTML = "<b>Date</b>";
+    cellEvent.innerHTML = "<b>Event</b>";
+    cellPhoto.innerHTML = "<b>Photo</b>";
+    row.classList.add("w3-theme");
+    
+    /* add all the logs */
+    var idPlant = document.getElementById("selectPlantListJournal").value.split("_")[1];
+    for(var i=0; i<db.arrPlants[idPlant].arrLogs.length; i++) {
+        row = table.insertRow(i+1);
+        cellDate = row.insertCell(0);
+        cellEvent = row.insertCell(1);
+        cellPhoto = row.insertCell(2);
+        cellDate.innerText = moment( db.arrPlants[idPlant].arrLogs[i].date ).format( "Do MMM YYYY" );
+        cellEvent.innerText = db.arrPlants[idPlant].arrLogs[i].event;
+        cellPhoto.innerHTML = '<img src="img/dummyplant.png" width="50px" height="50px">';
+    }
 }
 
 function sidebarShow() {
