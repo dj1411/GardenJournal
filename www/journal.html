@@ -32,7 +32,7 @@
     <body onload="main()" class="w3-text-theme">
         
         <!-- Header bar -->
-        <div class="w3-bar w3-theme-dark w3-xlarge w3-card">
+        <div id="divHeader" class="w3-bar w3-theme-dark w3-xlarge w3-card" style="position: fixed;">
             <a id="buttonSidebar" class="w3-bar-item w3-button" href="javascript:sidebarShow()"><i class="fa fa-bars"></i></a>
             <span class="w3-bar-item" id="title"></span>
             <div id="divToolbar" class="w3-right">
@@ -44,7 +44,7 @@
         <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" onclick="onclickAddLog()"><i class="fa fa-plus"></i></button>
         
         <!-- Sidebar -->
-        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="display:none; z-index:5">
+        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="display:none;">
             <div class="w3-bar-item w3-border-bottom">
                 <img id="imgUserSidebar" src="img/anonymous.png" class="w3-circle w3-margin-right">
                 <span id="labelName">New User</span>
@@ -58,7 +58,7 @@
         <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></div>
         
         <!-- journal div -->
-        <div class="w3-padding">
+        <div id="divJournal" class="w3-padding" style="position: relative;">
             
             <!-- Dropdown (dummy entries) -->
             <div class="w3-cell-row">

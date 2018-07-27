@@ -77,6 +77,9 @@ function setStyle() {
     document.title = APP_NAME;
     document.getElementById("title").innerText = APP_NAME;    
     
+    /* move all contents below header bar */
+    document.getElementById("divJournal").style.top = document.getElementById("divHeader").clientHeight + "px";
+    
     /* floating (+) button */
     document.getElementById("buttonAddLog").style.position = "fixed";
     document.getElementById("buttonAddLog").style.bottom = SIZE_W3_PADDING + "px";
@@ -96,6 +99,10 @@ function setStyle() {
     document.getElementById("divPhotoAddLog").style.height = SIZE_THUMBNAIL_MED + "px";
     document.getElementById("imgAddLog").style.maxWidth = SIZE_THUMBNAIL_MED + "px";
     document.getElementById("imgAddLog").style.maxHeight = SIZE_THUMBNAIL_MED + "px";
+    
+    /* setting z-index */
+    document.getElementById("divHeader").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("divSidebar").style.zIndex = Z_INDEX_TOP;
 }
 
 function showLog() {
