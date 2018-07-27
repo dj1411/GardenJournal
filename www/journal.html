@@ -41,12 +41,12 @@
         </div>
 
         <!-- floating (+) button -->
-        <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" style="position: fixed; bottom: 15px; right: 15px" onclick="onclickAddLog()"><i class="fa fa-plus"></i></button>
+        <button id="buttonAddLog" class="w3-button w3-xlarge w3-circle w3-theme-action w3-card-4 w3-ripple" onclick="onclickAddLog()"><i class="fa fa-plus"></i></button>
         
         <!-- Sidebar -->
-        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="width:300px; display:none; z-index:5">
+        <div id="divSidebar" class="w3-sidebar w3-bar-block w3-theme-light w3-large w3-card w3-animate-left w3-overlay" style="display:none; z-index:5">
             <div class="w3-bar-item w3-border-bottom">
-                <img src="img/anonymous.png" width="75px" class="w3-circle w3-margin-right">
+                <img id="imgUserSidebar" src="img/anonymous.png" class="w3-circle w3-margin-right">
                 <span id="labelName">New User</span>
                 <a class="w3-right" href="javascript:sidebarHide()"><i class="fas fa-times"></i></a>
             </div>
@@ -67,9 +67,9 @@
                     <option value="Plant2">Plant2</option>
                     <option value="Plant3">Plant3</option>
                 </select>
-                <a class="w3-cell w3-button" style="width: 16px" onclick="document.getElementById('modalAddPlant').style.display='block'"><i class="fas fa-plus"></i></a>
-                <a class="w3-cell w3-button" style="width: 16px"><i class="fas fa-minus"></i></a>
-                <a class="w3-cell w3-button" style="width: 16px"><i class="fas fa-pencil-alt"></i></a>
+                <a class="toolbarPlant w3-cell w3-button" onclick="document.getElementById('modalAddPlant').style.display='block'"><i class="fas fa-plus"></i></a>
+                <a class="toolbarPlant w3-cell w3-button"><i class="fas fa-minus"></i></a>
+                <a class="toolbarPlant w3-cell w3-button"><i class="fas fa-pencil-alt"></i></a>
             </div>
             
             <!-- journal table (dummy entries) -->
@@ -95,7 +95,7 @@
         
         <!-- modal Add Plant -->
         <div id="modalAddPlant" class="w3-modal">
-            <div class="w3-modal-content w3-text-theme" style="max-width:600px">
+            <div class="w3-modal-content w3-text-theme">
                 <div class="w3-container w3-theme w3-large w3-padding">Add a new plant</div>
                 <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddPlant()">
                     
@@ -103,8 +103,8 @@
                     <input id="textPlantName" class="w3-input" type="text"></p>
 
                     <p><label><b>Photo</b></label></p>
-                    <div class="w3-display-container w3-border" style="width: 150px; height: 150px">
-                        <img src="img/dummyplant.png" style="max-height: 150px; max-width: 150px;">
+                    <div id="divPhotoAddPlant" class="w3-display-container w3-border">
+                        <img id="imgAddPlant" src="img/dummyplant.png">
                         <a class="w3-button w3-display-bottomright"><i class="fas fa-camera"></i></a>
                     </div>
                     
@@ -119,7 +119,7 @@
         
         <!-- modal Add Log -->
         <div id="modalAddLog" class="w3-modal">
-            <div class="w3-modal-content w3-text-theme" style="max-width:600px">
+            <div class="w3-modal-content w3-text-theme">
                 <div class="w3-container w3-theme w3-large w3-padding">Log a new event</div>
                 <form id="formAddLog" class="w3-container" onsubmit="onsubmitAddLog()">
                     
@@ -143,8 +143,8 @@
                     </p>
 
                     <p><label><b>Photo: </b></label></p>
-                    <div class="w3-display-container w3-border" style="width: 150px; height: 150px">
-                        <img src="img/dummyplant.png" style="max-height: 150px; max-width: 150px;">
+                    <div id="divPhotoAddLog" class="w3-display-container w3-border">
+                        <img id="imgAddLog" src="img/dummyplant.png">
                         <a class="w3-button w3-display-bottomright"><i class="fas fa-camera"></i></a>
                     </div>
                     

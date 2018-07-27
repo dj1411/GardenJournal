@@ -76,6 +76,26 @@ function setStyle() {
     /* set the app name and version */
     document.title = APP_NAME;
     document.getElementById("title").innerText = APP_NAME;    
+    
+    /* floating (+) button */
+    document.getElementById("buttonAddLog").style.position = "fixed";
+    document.getElementById("buttonAddLog").style.bottom = SIZE_W3_PADDING + "px";
+    document.getElementById("buttonAddLog").style.right = SIZE_W3_PADDING + "px";
+    
+    /* setting size of different elements */
+    document.getElementById("divSidebar").style.width = WIDTH_SIDEBAR + "px";
+    document.getElementById("imgUserSidebar").style.height = SIZE_THUMBNAIL_SMALL + "px";
+    document.getElementById("imgUserSidebar").style.width = SIZE_THUMBNAIL_SMALL + "px";
+    for(var i=0; i<document.getElementsByClassName("toolbarPlant").length; i++) document.getElementsByClassName("toolbarPlant")[i].style.width = SIZE_ICON + "px";
+    for(var i=0; i<document.getElementsByClassName("w3-modal-content").length; i++) document.getElementsByClassName("w3-modal-content")[i].style.maxWidth = WIDTH_MODAL + "px";
+    document.getElementById("divPhotoAddPlant").style.width = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("divPhotoAddPlant").style.height = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("imgAddPlant").style.maxWidth = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("imgAddPlant").style.maxHeight = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("divPhotoAddLog").style.width = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("divPhotoAddLog").style.height = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("imgAddLog").style.maxWidth = SIZE_THUMBNAIL_MED + "px";
+    document.getElementById("imgAddLog").style.maxHeight = SIZE_THUMBNAIL_MED + "px";
 }
 
 function showLog() {
@@ -98,9 +118,14 @@ function showLog() {
         cellDate = row.insertCell(0);
         cellEvent = row.insertCell(1);
         cellPhoto = row.insertCell(2);
+        
+        cellDate.style.lineHeight = SIZE_THUMBNAIL_SMALL + "px";
         cellDate.innerText = moment( db.arrPlants[idPlant].arrLogs[i].date ).format( "Do MMM YYYY" );
+        
+        cellEvent.style.lineHeight = SIZE_THUMBNAIL_SMALL + "px";
         cellEvent.innerText = db.arrPlants[idPlant].arrLogs[i].event;
-        cellPhoto.innerHTML = '<img src="img/dummyplant.png" width="50px" height="50px">';
+        
+        cellPhoto.innerHTML = '<img src="img/dummyplant.png" width="' + SIZE_THUMBNAIL_SMALL + 'px" height="' + SIZE_THUMBNAIL_SMALL + 'px">';
     }
 }
 

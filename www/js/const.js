@@ -26,3 +26,9 @@ const APP_NAME = "Garden Journal";
 const APP_VER = "0.1.0";
 
 const HEIGHT_JOURNAL_ROW = 50;
+const WIDTH_SIDEBAR = 300;
+const WIDTH_MODAL = 600;
+const SIZE_THUMBNAIL_SMALL = 75;
+const SIZE_THUMBNAIL_MED = 150;
+const SIZE_W3_PADDING = 16;
+const SIZE_ICON = 48;
