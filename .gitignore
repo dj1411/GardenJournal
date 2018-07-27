@@ -25,3 +25,4 @@ hs_err_pid*
 /platforms/android/.gradle
 /platforms/android/app/build
 /platforms/android/CordovaLib/build/
+/platforms/android/app/src

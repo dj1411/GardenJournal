@@ -27,6 +27,7 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
+        location.assign("journal.html");
         this.receivedEvent('deviceready');
     },
 

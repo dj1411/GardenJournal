@@ -29,6 +29,8 @@ function main() {
     db = new DB();
     refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));
     showLog();
+
+//    alert( document.getElementById("tableJournal").getBoundingClientRect().left );
 }
 
 function onchangePlantList() {
@@ -103,6 +105,7 @@ function setStyle() {
     /* setting z-index */
     document.getElementById("divHeader").style.zIndex = Z_INDEX_TOP;
     document.getElementById("divSidebar").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("buttonAddLog").style.zIndex = Z_INDEX_TOP;
 }
 
 function showLog() {
