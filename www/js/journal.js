@@ -32,6 +32,7 @@ function main() {
 }
 
 function onchangePlantList() {
+    showLog();
 }
 
 function onclickAddLog() {
@@ -90,7 +91,7 @@ function showLog() {
     cellPhoto.innerHTML = "<b>Photo</b>";
     row.classList.add("w3-theme");
     
-    /* add all the logs */
+    /* add the logs */
     var idPlant = document.getElementById("selectPlantListJournal").value.split("_")[1];
     for(var i=0; i<db.arrPlants[idPlant].arrLogs.length; i++) {
         row = table.insertRow(i+1);
