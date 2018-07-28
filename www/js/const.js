@@ -37,4 +37,5 @@ const Z_INDEX_TOP = 5;
 const Z_INDEX_MED = 3;
 const Z_INDEX_BOTTOM = 1;
 
-const COLOR_SELECTION = "w3-theme-l3"
+const COLOR_SELECTION = "w3-theme-l4"
+const COLOR_MENU = "w3-theme-l3"

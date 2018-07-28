@@ -50,6 +50,7 @@ function onclickAddLog() {
 function oncontextmenuTableJournal(event) {
     event.preventDefault();
     selectRow(event.clientY);
+    showMenuJournal(event.clientX, event.clientY);
 }
 function onsubmitAddPlant() {
     db.addPlant();
@@ -128,6 +129,10 @@ function setStyle() {
     document.getElementById("divHeader").style.zIndex = Z_INDEX_TOP;
     document.getElementById("divSidebar").style.zIndex = Z_INDEX_TOP;
     document.getElementById("buttonAddLog").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("menuJournal").style.zIndex = Z_INDEX_TOP;
+    
+    /* setting color */
+    document.getElementById("menuJournal").classList.add(COLOR_MENU);
 }
 
 function showLog() {
@@ -159,6 +164,12 @@ function showLog() {
         
         cellPhoto.innerHTML = '<img src="img/dummyplant.png" width="' + SIZE_THUMBNAIL_SMALL + 'px" height="' + SIZE_THUMBNAIL_SMALL + 'px">';
     }
+}
+
+function showMenuJournal(mouseX, mouseY) {
+    document.getElementById("menuJournal").style.left = mouseX + "px";
+    document.getElementById("menuJournal").style.top = mouseY + "px";
+    document.getElementById("menuJournal").style.display = "block";
 }
 
 function sidebarShow() {
