@@ -52,6 +52,14 @@ function oncontextmenuTableJournal(event) {
     selectRow(event.clientY);
     showMenuJournal(event.clientX, event.clientY);
 }
+
+function onkeydownMenuJournal(event) {
+    if(event.code == "Escape" || event.code == "Esc")
+        hideMenuJournal();
+    
+    window.removeEventListener( "keydown", onkeydownMenuJournal );
+}
+
 function onsubmitAddPlant() {
     db.addPlant();
 }
@@ -171,11 +179,13 @@ function showLog() {
 }
 
 function showMenuJournal(mouseX, mouseY) {
-    /* show the menu */
     document.getElementById("menuJournal").style.left = mouseX + "px";
     document.getElementById("menuJournal").style.top = mouseY + "px";
     document.getElementById("menuJournal").style.display = "block";
     document.getElementById("overlayMenuJournal").style.display = "block";
+    
+    /* handle escape key */
+    window.addEventListener( "keydown", onkeydownMenuJournal );
 }
 
 function hideMenuJournal() {
