@@ -34,7 +34,7 @@
         
         <!-- Header bar -->
         <div id="divHeader" class="w3-bar w3-theme-dark w3-xlarge w3-card" style="position: fixed;">
-            <a id="buttonSidebar" class="w3-bar-item w3-button" href="javascript:sidebarShow()"><i class="fa fa-bars"></i></a>
+            <a id="buttonSidebar" class="w3-bar-item w3-button" href="javascript:showSidebar()"><i class="fa fa-bars"></i></a>
             <span class="w3-bar-item" id="title"></span>
             <div id="divToolbar" class="w3-right">
                 <a id="buttonSettings" class="w3-bar-item w3-button w3-ripple" href="settings.html"><i class="fas fa-cog"></i></a>
@@ -49,14 +49,14 @@
             <div class="w3-bar-item w3-border-bottom">
                 <img id="imgUserSidebar" src="img/anonymous.png" class="w3-circle w3-margin-right">
                 <span id="labelName">New User</span>
-                <a class="w3-right" href="javascript:sidebarHide()"><i class="fas fa-times"></i></a>
+                <a class="w3-right" href="javascript:hideSidebar()"><i class="fas fa-times"></i></a>
             </div>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="journal.html"><i class="fas fa-align-left w3-padding"></i>Journal</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="gallery.html"><i class="far fa-images w3-padding"></i>Gallery</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="garden.html"><i class="fas fa-leaf w3-padding"></i>Garden</a>
             <a class="w3-bar-item w3-button w3-hover-border-theme w3-ripple" href="community.html"><i class="fas fa-comments w3-padding"></i>Community</a>
         </div>
-        <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></div>
+        <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="hideSidebar()"></div>
         
         <!-- journal div -->
         <div id="divJournal" class="w3-padding" style="position: relative;">
@@ -160,9 +160,10 @@
         
         <!-- menu Journal entry -->
         <div id="menuJournal" class="w3-bar-block w3-card" style="position: fixed; display: none">
-            <a class="w3-bar-item w3-button">edit</a>
+            <a class="w3-bar-item w3-button" href="javascript: alert('menuitem')">edit</a>
             <a class="w3-bar-item w3-button">delete</a>
         </div>
+        <div id="overlayMenuJournal" onclick="hideMenuJournal()" style="position: fixed; width: 100%; height: 100%; left: 0; top: 0; display: none"></div>
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>

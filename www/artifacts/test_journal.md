@@ -14,3 +14,4 @@
 # context menu
 - right click on a journal entry, a pop up menu should be displayed
 - test different combinations using different logs and different plants
+- clicking outside or escape key should hide it

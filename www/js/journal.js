@@ -77,6 +77,14 @@ function refreshPlantListDropdown(dropdown) {
     dropdown.selectedIndex = 0;
 }
 
+function resetSelectionJournal() {
+    var table = document.getElementById("tableJournal");
+    for(var r=1; r<table.rows.length; r++) { // r=1 for header row
+        if( table.rows[r].classList.contains(COLOR_SELECTION) )
+            table.rows[r].classList.remove(COLOR_SELECTION);
+    }    
+}
+
 function selectRow(mouseY) {
     var table = document.getElementById("tableJournal");
     var start = table.rows[1].getBoundingClientRect().top;
@@ -87,13 +95,8 @@ function selectRow(mouseY) {
     if(mouseY < start) return; // check if the header bar is clicked
     var row = Math.floor((mouseY-start)/height);
     
-    /* de-select any previous selection */
-    for(var r=1; r<table.rows.length; r++) { // r=1 for header row
-        if( table.rows[r].classList.contains(COLOR_SELECTION) )
-            table.rows[r].classList.remove(COLOR_SELECTION);
-    }
-    
     /* select the current row */
+    resetSelectionJournal();
     table.rows[row+1].classList.add(COLOR_SELECTION); // +1 for header row
 }
 
@@ -126,10 +129,11 @@ function setStyle() {
     document.getElementById("imgAddLog").style.maxHeight = SIZE_THUMBNAIL_MED + "px";
     
     /* setting z-index */
-    document.getElementById("divHeader").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("divHeader").style.zIndex = Z_INDEX_MED;
     document.getElementById("divSidebar").style.zIndex = Z_INDEX_TOP;
-    document.getElementById("buttonAddLog").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("buttonAddLog").style.zIndex = Z_INDEX_MED;
     document.getElementById("menuJournal").style.zIndex = Z_INDEX_TOP;
+    document.getElementById("overlayMenuJournal").style.zIndex = Z_INDEX_MED;
     
     /* setting color */
     document.getElementById("menuJournal").classList.add(COLOR_MENU);
@@ -167,17 +171,25 @@ function showLog() {
 }
 
 function showMenuJournal(mouseX, mouseY) {
+    /* show the menu */
     document.getElementById("menuJournal").style.left = mouseX + "px";
     document.getElementById("menuJournal").style.top = mouseY + "px";
     document.getElementById("menuJournal").style.display = "block";
+    document.getElementById("overlayMenuJournal").style.display = "block";
 }
 
-function sidebarShow() {
+function hideMenuJournal() {
+    document.getElementById("menuJournal").style.display = "none";
+    document.getElementById("overlayMenuJournal").style.display = "none";
+    resetSelectionJournal();
+}
+
+function showSidebar() {
 	document.getElementById("divSidebar").style.display = "block";
 	document.getElementById("overlaySidebar").style.display = "block";
 }
 
-function sidebarHide() {
+function hideSidebar() {
 	document.getElementById("divSidebar").style.display = "none";
 	document.getElementById("overlaySidebar").style.display = "none";
 }
