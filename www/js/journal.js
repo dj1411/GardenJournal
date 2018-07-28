@@ -27,12 +27,19 @@ var db;
 function main() {
     setStyle();
     db = new DB();
-    refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));
+    refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));
+    
+    /* check session storage for the selected plant and they show its log */
+    if( sessionStorage.getItem("SelectedPlant") != null )
+        document.getElementById("dropdownPlantListJournal").selectedIndex = sessionStorage.getItem("SelectedPlant");
     showLog();
 }
 
 function onchangePlantList() {
     showLog();
+    
+    /* save new selection to session data */
+    sessionStorage.setItem( "SelectedPlant", document.getElementById("dropdownPlantListJournal").selectedIndex );
 }
 
 function onclickAddLog() {
@@ -40,8 +47,8 @@ function onclickAddLog() {
     document.getElementById("modalAddLog").style.display = "block";
     
     /* populate the plant list dropdown */
-    refreshPlantListDropdown(document.getElementById("selectPlantListAddLog"));
-    document.getElementById("selectPlantListAddLog").value = document.getElementById("selectPlantListJournal").value;
+    refreshPlantListDropdown(document.getElementById("dropdownPlantListAddLog"));
+    document.getElementById("dropdownPlantListAddLog").value = document.getElementById("dropdownPlantListJournal").value;
     
     /* fill the date */
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
@@ -161,7 +168,7 @@ function showLog() {
     row.classList.add("w3-theme");
     
     /* add the logs */
-    var idPlant = document.getElementById("selectPlantListJournal").value.split("_")[1];
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
     for(var i=0; i<db.arrPlants[idPlant].arrLogs.length; i++) {
         row = table.insertRow(i+1);
         cellDate = row.insertCell(0);

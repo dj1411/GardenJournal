@@ -29,7 +29,7 @@ function DB() {
 
 /* add log for a plant */
 DB.prototype.addLog = function () {
-    var idPlant = parseInt(document.getElementById("selectPlantListAddLog").value.split("_")[1]);
+    var idPlant = parseInt(document.getElementById("dropdownPlantListAddLog").value.split("_")[1]);
     var plant = this.arrPlants[idPlant];
     var log = new Log(plant.arrLogs.length);
     plant.arrLogs.push(log);
