@@ -59,7 +59,7 @@
         <div id="overlaySidebar" class="w3-overlay w3-animate-opacity" onclick="sidebarHide()"></div>
         
         <!-- journal div -->
-        <div id="divJournal" class="w3-padding" style="position: relative;" oncontextmenu="alert('HI')">
+        <div id="divJournal" class="w3-padding" style="position: relative;">
             
             <!-- Dropdown (dummy entries) -->
             <div class="w3-cell-row">
@@ -74,7 +74,7 @@
             </div>
             
             <!-- journal table (dummy entries) -->
-            <table id="tableJournal" class="w3-table-all w3-margin-top">
+            <table id="tableJournal" class="w3-table-all w3-margin-top" oncontextmenu="oncontextmenuTableJournal(event)">
                 <tr class="w3-theme">
                     <th>Date</th>
                     <th>Event</th>

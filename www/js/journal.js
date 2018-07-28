@@ -29,8 +29,6 @@ function main() {
     db = new DB();
     refreshPlantListDropdown(document.getElementById("selectPlantListJournal"));
     showLog();
-
-//    alert( document.getElementById("tableJournal").getBoundingClientRect().left );
 }
 
 function onchangePlantList() {
@@ -49,6 +47,10 @@ function onclickAddLog() {
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
 }
 
+function oncontextmenuTableJournal(event) {
+    event.preventDefault();
+    selectRow(event.clientY);
+}
 function onsubmitAddPlant() {
     db.addPlant();
 }
@@ -72,6 +74,26 @@ function refreshPlantListDropdown(dropdown) {
         dropdown.add(option, i);
     }
     dropdown.selectedIndex = 0;
+}
+
+function selectRow(mouseY) {
+    var table = document.getElementById("tableJournal");
+    var start = table.rows[1].getBoundingClientRect().top;
+    var end = table.rows[table.rows.length - 1].getBoundingClientRect().bottom;
+    var height = table.rows[1].getBoundingClientRect().bottom - start;
+    
+    /* determine the row */
+    if(mouseY < start) return; // check if the header bar is clicked
+    var row = Math.floor((mouseY-start)/height);
+    
+    /* de-select any previous selection */
+    for(var r=1; r<table.rows.length; r++) { // r=1 for header row
+        if( table.rows[r].classList.contains(COLOR_SELECTION) )
+            table.rows[r].classList.remove(COLOR_SELECTION);
+    }
+    
+    /* select the current row */
+    table.rows[row+1].classList.add(COLOR_SELECTION); // +1 for header row
 }
 
 function setStyle() {
