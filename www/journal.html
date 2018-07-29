@@ -68,9 +68,9 @@
                     <option id="id_1" value="id_1">Plant2</option>
                     <option id="id_2" value="id_2">Plant3</option>
                 </select>
-                <a class="toolbarPlant w3-cell w3-button" onclick="document.getElementById('modalAddPlant').style.display='block'"><i class="fas fa-plus"></i></a>
+                <a class="toolbarPlant w3-cell w3-button" href="javascript: onclickAddPlant()"><i class="fas fa-plus"></i></a>
                 <a class="toolbarPlant w3-cell w3-button" href="javascript: onclickDeletePlant()"><i class="fas fa-minus"></i></a>
-                <a class="toolbarPlant w3-cell w3-button"><i class="fas fa-pencil-alt"></i></a>
+                <a class="toolbarPlant w3-cell w3-button" href="javascript: onclickEditPlant()"><i class="fas fa-pencil-alt"></i></a>
             </div>
             
             <!-- journal table (dummy entries) -->
@@ -97,7 +97,7 @@
         <!-- modal Add Plant -->
         <div id="modalAddPlant" class="w3-modal">
             <div class="w3-modal-content w3-text-theme">
-                <div class="w3-container w3-theme w3-large w3-padding">Add a new plant</div>
+                <div id="labelAddPlant" class="w3-container w3-theme w3-large w3-padding">Add a new plant</div>
                 <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddPlant()">
                     
                     <p><label><b>Name</b></label>
@@ -111,7 +111,7 @@
                     
                     <div class="w3-bar w3-margin-top w3-margin-bottom">
                         <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="document.getElementById('modalAddPlant').style.display='none'" value="Cancel" />
-                        <button type="submit" class="w3-button w3-theme w3-right" style="width:45%">Submit</button>
+                        <input id="submitAddPlant" type="submit" class="w3-button w3-theme w3-right" style="width:45%" value="Add" />
                     </div>
 
                 </form>

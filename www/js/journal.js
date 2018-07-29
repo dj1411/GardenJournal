@@ -60,10 +60,38 @@ function onclickAddLog() {
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
 }
 
+function onclickAddPlant() {
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
+    
+    /* fill different labels */
+    document.getElementById('labelAddPlant').innerText = "Add a new plant";
+    document.getElementById('submitAddPlant').value = "Add";
+
+    /* show the modal */
+    document.getElementById('modalAddPlant').style.display='block';
+}
+
+function onclickEditPlant() {
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
+    
+    /* fill different labels */
+    document.getElementById('labelAddPlant').innerText = "Edit plant: " + db.arrPlants[idPlant].name;
+    document.getElementById('submitAddPlant').value = "Update";
+    
+    /* pre-fill existing values */
+    document.getElementById("textPlantName").value = db.arrPlants[idPlant].name;
+    
+    /* show the modal */
+    document.getElementById('modalAddPlant').style.display='block';
+}
+
 function onclickDeletePlant() {
     var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
-    if( window.confirm("Are you sure to delete " + db.arrPlants[idPlant].name + "?") )
+    if( window.confirm("Are you sure to delete " + db.arrPlants[idPlant].name + "?") ) {
         db.deletePlant();
+        refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));    
+        showLog();
+    }
 }
 
 function oncontextmenuTableJournal(event) {
@@ -80,7 +108,7 @@ function onkeydownMenuJournal(event) {
 }
 
 function onsubmitAddPlant() {
-    db.addPlant();
+    db.addPlant(false);
 }
 
 function onsubmitAddLog() {

@@ -36,8 +36,8 @@ DB.prototype.addLog = function () {
     this.save();
 }
 
-/* add a plant */
-DB.prototype.addPlant = function () {
+/* add/edit a plant */
+DB.prototype.addPlant = function (update) {
     var id = this.arrPlants.length;
     var plant = new Plant(id);
     this.arrPlants.push(plant);

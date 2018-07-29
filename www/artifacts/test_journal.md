@@ -3,7 +3,12 @@
 - selecting a different plant in the dropdown should show corresponding log
 
 # Add plant
+- the modal should reflect all labels corresponding to `add`
 - Clicking add plant should add to the dropdown list
+
+# edit plant
+- the modal should reflect all labels corresponding to `edit`
+- change different parameters of an existing plant and see if the change is reflected
 
 # delete plant
 - when a plant is deleted, it should not appear on the list
