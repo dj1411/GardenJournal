@@ -108,7 +108,10 @@ function onkeydownMenuJournal(event) {
 }
 
 function onsubmitAddPlant() {
-    db.addPlant(false);
+    if( document.getElementById("submitAddPlant").value == "Add" )
+        db.addPlant();
+    else
+        db.editPlant();
 }
 
 function onsubmitAddLog() {

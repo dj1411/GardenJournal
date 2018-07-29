@@ -36,10 +36,11 @@ DB.prototype.addLog = function () {
     this.save();
 }
 
-/* add/edit a plant */
-DB.prototype.addPlant = function (update) {
+/* add a plant */
+DB.prototype.addPlant = function () {
     var id = this.arrPlants.length;
     var plant = new Plant(id);
+    console.log( plant.edit );
     this.arrPlants.push(plant);
     this.save();
 }
@@ -48,6 +49,14 @@ DB.prototype.addPlant = function (update) {
 DB.prototype.deletePlant = function () {
     var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
     this.arrPlants[idPlant].deleted = true;
+    this.save();
+}
+
+/* edit a plant */
+DB.prototype.editPlant = function () {
+    var idPlant = parseInt(document.getElementById("dropdownPlantListJournal").value.split("_")[1]);
+    this.arrPlants[idPlant].timestamp = moment().toString();
+    this.arrPlants[idPlant].name = document.getElementById("textPlantName").value;
     this.save();
 }
 
