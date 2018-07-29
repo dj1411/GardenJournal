@@ -30,8 +30,14 @@ function main() {
     refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));
     
     /* check session storage for the selected plant and they show its log */
-    if( sessionStorage.getItem("SelectedPlant") != null )
-        document.getElementById("dropdownPlantListJournal").selectedIndex = sessionStorage.getItem("SelectedPlant");
+    if( sessionStorage.getItem("SelectedPlant") != null ) {
+        var arr = document.getElementById("dropdownPlantListJournal").options;
+        var i=0;
+        for(; i<arr.length; i++)
+            if(arr[i].value == sessionStorage.getItem("SelectedPlant"))
+                break;
+        document.getElementById("dropdownPlantListJournal").selectedIndex = i;
+    }
     showLog();
 }
 
@@ -39,7 +45,7 @@ function onchangePlantList() {
     showLog();
     
     /* save new selection to session data */
-    sessionStorage.setItem( "SelectedPlant", document.getElementById("dropdownPlantListJournal").selectedIndex );
+    sessionStorage.setItem( "SelectedPlant", document.getElementById("dropdownPlantListJournal").value );
 }
 
 function onclickAddLog() {
@@ -89,7 +95,6 @@ function refreshPlantListDropdown(dropdown) {
         option.value = "id_" + db.arrPlants[i].id.toString();
         dropdown.add(option, i);
     }
-    dropdown.selectedIndex = 0;
 }
 
 function resetSelectionJournal() {
@@ -174,6 +179,9 @@ function showLog() {
         cellDate = row.insertCell(0);
         cellEvent = row.insertCell(1);
         cellPhoto = row.insertCell(2);
+        
+        /* set the id */
+        row.setAttribute( "id", "id_" + db.arrPlants[idPlant].arrLogs[i].id );
         
         cellDate.style.lineHeight = SIZE_THUMBNAIL_SMALL + "px";
         cellDate.innerText = moment( db.arrPlants[idPlant].arrLogs[i].date ).format( "Do MMM YYYY" );
