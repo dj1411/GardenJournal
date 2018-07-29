@@ -42,6 +42,7 @@ DB.prototype.addPlant = function () {
     var plant = new Plant(id);
     console.log( plant.edit );
     this.arrPlants.push(plant);
+    sessionStorage.setItem( "SelectedPlant", "id_" + id );
     this.save();
 }
 

@@ -22,11 +22,10 @@
  * SOFTWARE.
  *******************************************************************************/
 
-var db;
+var db = new DB();
 
 function main() {
     setStyle();
-    db = new DB();
     refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));
     
     /* check session storage for the selected plant and they show its log */
@@ -39,6 +38,48 @@ function main() {
         document.getElementById("dropdownPlantListJournal").selectedIndex = i;
     }
     showLog();
+}
+
+function hideMenuJournal() {
+    document.getElementById("menuJournal").style.display = "none";
+    document.getElementById("overlayMenuJournal").style.display = "none";
+    resetSelectionJournal();
+    window.removeEventListener( "keydown", oncancelMenuJournal );
+}
+
+function hideSidebar() {
+	document.getElementById("divSidebar").style.display = "none";
+	document.getElementById("overlaySidebar").style.display = "none";
+}
+
+function hideModalAddLog() {
+    document.getElementById('modalAddLog').style.display='none';
+    window.removeEventListener( "keydown", oncancelModalAddLog );
+    window.removeEventListener( "click", oncancelModalAddLog );
+}
+
+function hideModalAddPlant() {
+    document.getElementById('modalAddPlant').style.display='none';
+    window.removeEventListener( "keydown", oncancelModalAddPlant );
+    window.removeEventListener( "click", oncancelModalAddPlant );
+}
+
+function oncancelMenuJournal(event) {
+    if(event.code == "Escape") {
+        hideMenuJournal();
+    }
+}
+
+function oncancelModalAddLog(event) {
+    if(event.code == "Escape" || (event.type == "click" && event.target == document.getElementById('modalAddLog'))) {
+        hideModalAddLog();
+    }
+}
+
+function oncancelModalAddPlant(event) {
+    if(event.code == "Escape" || (event.type == "click" && event.target == document.getElementById('modalAddPlant'))) {
+        hideModalAddPlant();
+    }
 }
 
 function onchangePlantList() {
@@ -58,6 +99,10 @@ function onclickAddLog() {
     
     /* fill the date */
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
+    
+    /* handle escape key and outside click */
+    window.addEventListener( "keydown", oncancelModalAddLog );
+    window.addEventListener( "click", oncancelModalAddLog );    
 }
 
 function onclickAddPlant() {
@@ -68,7 +113,11 @@ function onclickAddPlant() {
     document.getElementById('submitAddPlant').value = "Add";
 
     /* show the modal */
-    document.getElementById('modalAddPlant').style.display='block';
+    document.getElementById('modalAddPlant').style.display = 'block';
+    
+    /* handle escape key and outside click */
+    window.addEventListener( "keydown", oncancelModalAddPlant );
+    window.addEventListener( "click", oncancelModalAddPlant );
 }
 
 function onclickEditPlant() {
@@ -99,13 +148,6 @@ function oncontextmenuTableJournal(event) {
     event.preventDefault();
     selectRow(event.clientY);
     showMenuJournal(event.clientX, event.clientY);
-}
-
-function onkeydownMenuJournal(event) {
-    if(event.code == "Escape" || event.code == "Esc")
-        hideMenuJournal();
-    
-    window.removeEventListener( "keydown", onkeydownMenuJournal );
 }
 
 function onsubmitAddPlant() {
@@ -241,13 +283,7 @@ function showMenuJournal(mouseX, mouseY) {
     document.getElementById("overlayMenuJournal").style.display = "block";
     
     /* handle escape key */
-    window.addEventListener( "keydown", onkeydownMenuJournal );
-}
-
-function hideMenuJournal() {
-    document.getElementById("menuJournal").style.display = "none";
-    document.getElementById("overlayMenuJournal").style.display = "none";
-    resetSelectionJournal();
+    window.addEventListener( "keydown", oncancelMenuJournal );
 }
 
 function showSidebar() {
@@ -255,7 +291,3 @@ function showSidebar() {
 	document.getElementById("overlaySidebar").style.display = "block";
 }
 
-function hideSidebar() {
-	document.getElementById("divSidebar").style.display = "none";
-	document.getElementById("overlaySidebar").style.display = "none";
-}
