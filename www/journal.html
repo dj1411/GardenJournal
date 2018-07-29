@@ -95,10 +95,10 @@
         </div>
         
         <!-- modal Add Plant -->
-        <div id="modalAddPlant" class="w3-modal">
+        <div id="modalAddEditPlant" class="w3-modal">
             <div class="w3-modal-content w3-text-theme">
                 <div id="labelAddPlant" class="w3-container w3-theme w3-large w3-padding">Add a new plant</div>
-                <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddPlant()">
+                <form id="formAddPlant" class="w3-container" onsubmit="onsubmitAddEditPlant()">
                     
                     <p><label><b>Name</b></label>
                     <input id="textPlantName" class="w3-input" type="text"></p>
@@ -110,7 +110,7 @@
                     </div>
                     
                     <div class="w3-bar w3-margin-top w3-margin-bottom">
-                        <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="hideModalAddPlant()" value="Cancel" />
+                        <input id="cancelAddPlant" type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="hideModalAddPlant()" value="Cancel" />
                         <input id="submitAddPlant" type="submit" class="w3-button w3-theme w3-right" style="width:45%" value="Add" />
                     </div>
 
@@ -119,17 +119,17 @@
         </div>      
         
         <!-- modal Add Log -->
-        <div id="modalAddLog" class="w3-modal">
+        <div id="modalAddEditLog" class="w3-modal">
             <div class="w3-modal-content w3-text-theme">
-                <div class="w3-container w3-theme w3-large w3-padding">Log a new event</div>
-                <form id="formAddLog" class="w3-container" onsubmit="onsubmitAddLog()">
+                <div id="labelAddEditLog" class="w3-container w3-theme w3-large w3-padding">Log a new event</div>
+                <form id="formAddLog" class="w3-container" onsubmit="onsubmitAddEditLog()">
                     
                     <p class="w3-cell-row">
                         <label class="w3-cell"><b>Plant name: </b></label>
                         <select id="dropdownPlantListAddLog" class="w3-input w3-cell" onchange="onchangePlantList()" required>
-                            <option value="Plant1">Plant1</option>
-                            <option value="Plant2">Plant2</option>
-                            <option value="Plant3">Plant3</option>
+                            <option value="Dummy Plant1">Plant1</option>
+                            <option value="Dummy Plant2">Plant2</option>
+                            <option value="Dummy Plant3">Plant3</option>
                         </select>                        
                     </p>
 
@@ -150,8 +150,8 @@
                     </div>
                     
                     <div class="w3-bar w3-margin-top w3-margin-bottom">
-                        <input type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="hideModalAddLog()" value="Cancel" />
-                        <input type="submit" class="w3-button w3-theme w3-right" style="width:45%" value="Add" />
+                        <input id="cancelAddEditLog" type="button" class="w3-button w3-theme w3-left" style="width:45%" onclick="hideModalAddLog()" value="Cancel" />
+                        <input id="submitAddEditLog" type="submit" class="w3-button w3-theme w3-right" style="width:45%" value="Add" />
                     </div>
 
                 </form>
@@ -160,8 +160,8 @@
         
         <!-- menu Journal entry -->
         <div id="menuJournal" class="w3-bar-block w3-card" style="position: fixed; display: none">
-            <a class="w3-bar-item w3-button" href="javascript: alert('edit')">edit</a>
-            <a class="w3-bar-item w3-button" href="javascript: alert('delete')">delete</a>
+            <div class="w3-bar-item w3-button" onclick="onclickEditLog()">edit</div>
+            <div class="w3-bar-item w3-button" onclick="onclickDeleteLog()">delete</div>
         </div>
         <div id="overlayMenuJournal" onclick="hideMenuJournal()" oncontextmenu="hideMenuJournal()" style="position: fixed; width: 100%; height: 100%; left: 0; top: 0; display: none"></div>
         
