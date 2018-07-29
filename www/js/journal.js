@@ -92,6 +92,7 @@ function refreshPlantListDropdown(dropdown) {
     for (var i = 0; i < db.arrPlants.length; i++) {
         var option = document.createElement("option");
         option.text = db.arrPlants[i].name;
+        option.setAttribute( "id", "id_" + db.arrPlants[i].id.toString() );
         option.value = "id_" + db.arrPlants[i].id.toString();
         dropdown.add(option, i);
     }
