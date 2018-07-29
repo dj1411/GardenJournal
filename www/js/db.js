@@ -44,6 +44,13 @@ DB.prototype.addPlant = function () {
     this.save();
 }
 
+/* delete a plant */
+DB.prototype.deletePlant = function () {
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
+    this.arrPlants[idPlant].deleted = true;
+    this.save();
+}
+
 /* load the database from local storage */
 DB.prototype.load = function () {
     var d = localStorage.getItem("arrPlants");

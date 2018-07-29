@@ -60,6 +60,12 @@ function onclickAddLog() {
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
 }
 
+function onclickDeletePlant() {
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
+    if( window.confirm("Are you sure to delete " + db.arrPlants[idPlant].name + "?") )
+        db.deletePlant();
+}
+
 function oncontextmenuTableJournal(event) {
     event.preventDefault();
     selectRow(event.clientY);
@@ -90,11 +96,13 @@ function refreshPlantListDropdown(dropdown) {
 
     /* fill with plant list */
     for (var i = 0; i < db.arrPlants.length; i++) {
-        var option = document.createElement("option");
-        option.text = db.arrPlants[i].name;
-        option.setAttribute( "id", "id_" + db.arrPlants[i].id.toString() );
-        option.value = "id_" + db.arrPlants[i].id.toString();
-        dropdown.add(option, i);
+        if(!db.arrPlants[i].deleted) {
+            var option = document.createElement("option");
+            option.text = db.arrPlants[i].name;
+            option.setAttribute( "id", "id_" + db.arrPlants[i].id.toString() );
+            option.value = "id_" + db.arrPlants[i].id.toString();
+            dropdown.add(option, i);
+        }
     }
 }
 
