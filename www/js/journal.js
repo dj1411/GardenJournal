@@ -27,7 +27,7 @@ var db = new DB();
 function main() {
     setStyle();
     refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));
-    
+
     /* check session storage for the selected plant and they show its log */
     if( sessionStorage.getItem("SelectedPlant") != null ) {
         var arr = document.getElementById("dropdownPlantListJournal").options;
@@ -38,6 +38,11 @@ function main() {
         document.getElementById("dropdownPlantListJournal").selectedIndex = i;
     }
     showLog();
+
+    /* exit the app on back button */
+    document.addEventListener("backbutton", function(event) {
+        navigator.app.exitApp();
+    });
 }
 
 function hideMenuJournal() {
