@@ -20,6 +20,10 @@
 - add too many logs. see if the scrolling happens below the header bar.
 	- change the plant and see how the scrolling behaves
 
+# edit log
+- the modal should reflect all labels corresponding to `edit`
+- change different parameters of an existing log and see if the change is reflected
+
 # context menu
 - right click on a journal entry, a pop up menu should be displayed
 - test different combinations using different logs and different plants

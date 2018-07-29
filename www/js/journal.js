@@ -48,7 +48,6 @@ function main() {
 function hideMenuJournal() {
     document.getElementById("menuJournal").style.display = "none";
     document.getElementById("overlayMenuJournal").style.display = "none";
-    resetSelectionJournal();
     window.removeEventListener( "keydown", oncancelMenuJournal );
 }
 
@@ -72,6 +71,7 @@ function hideSidebar() {
 function oncancelMenuJournal(event) {
     if(event.code == "Escape") {
         hideMenuJournal();
+        resetSelectionJournal();
     }
 }
 
@@ -99,15 +99,15 @@ function onclickAddLog() {
     document.getElementById('labelAddEditLog').innerText = "Add Log";
     document.getElementById('submitAddEditLog').value = "Add";
     
-    /* display the modal */
-    document.getElementById("modalAddEditLog").style.display = "block";
-    
-    /* populate the plant list dropdown */
+    /* pre-fills */
     refreshPlantListDropdown(document.getElementById("dropdownPlantListAddLog"));
     document.getElementById("dropdownPlantListAddLog").value = document.getElementById("dropdownPlantListJournal").value;
-    
-    /* fill the date */
+    document.getElementById("dropdownPlantListAddLog").disabled = false;
     document.getElementById("dateAddLog").value = moment().format("YYYY-MM-DD");
+    document.getElementById("textEvent").value = "";
+    
+    /* display the modal */
+    document.getElementById("modalAddEditLog").style.display = "block";
     
     /* handle escape key and outside click */
     window.addEventListener( "keydown", oncancelModalAddLog );
@@ -121,6 +121,9 @@ function onclickAddPlant() {
     document.getElementById('labelAddPlant').innerText = "Add a new plant";
     document.getElementById('submitAddPlant').value = "Add";
 
+    /* pre-fill existing values */
+    document.getElementById("textPlantName").value = "";
+    
     /* show the modal */
     document.getElementById('modalAddEditPlant').style.display = 'block';
     
@@ -149,14 +152,15 @@ function onclickEditLog() {
     /* pre-fill values */
     refreshPlantListDropdown(document.getElementById("dropdownPlantListAddLog"));
     document.getElementById("dropdownPlantListAddLog").value = document.getElementById("dropdownPlantListJournal").value;
+    document.getElementById("dropdownPlantListAddLog").disabled = true;
     document.getElementById("dateAddLog").value = moment(db.arrPlants[idPlant].arrLogs[idLog].date).format("YYYY-MM-DD");
     document.getElementById("textEvent").value = db.arrPlants[idPlant].arrLogs[idLog].event;
 
-    /* show the modal */
-    document.getElementById("modalAddEditLog").style.display = "block";
-    
     /* hide the menu */
     hideMenuJournal();
+
+    /* show the modal */
+    document.getElementById("modalAddEditLog").style.display = "block";
     
     /* handle escape key and outside click */
     window.addEventListener( "keydown", oncancelModalAddPlant );
@@ -175,6 +179,10 @@ function onclickEditPlant() {
     
     /* show the modal */
     document.getElementById('modalAddEditPlant').style.display='block';
+    
+    /* handle escape key and outside click */
+    window.addEventListener( "keydown", oncancelModalAddPlant );
+    window.addEventListener( "click", oncancelModalAddPlant );    
 }
 
 function onclickDeletePlant() {
@@ -201,7 +209,12 @@ function onsubmitAddEditPlant() {
 }
 
 function onsubmitAddEditLog() {
-    db.addLog();
+    if( document.getElementById("submitAddEditLog").value == "Add" )
+        db.addLog();
+    else {
+        db.editLog();
+        resetSelectionJournal();
+    }
 }
 
 function refreshPlantListDropdown(dropdown) {

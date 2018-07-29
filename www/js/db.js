@@ -18,7 +18,7 @@ function Log(id) {
     this.deleted = false;
     
     /* class specific parameters */
-    this.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD"); // date is strangely reflecting one day before, but retreive works fine
+    this.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD");
     this.event = document.getElementById("textEvent").value;
 }
 
@@ -33,6 +33,24 @@ DB.prototype.addLog = function () {
     var plant = this.arrPlants[idPlant];
     var log = new Log(plant.arrLogs.length);
     plant.arrLogs.push(log);
+    this.save();
+}
+
+/* edit a log */
+DB.prototype.editLog = function () {
+    /* determining the id of the plant and selected log */
+    var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
+    var idLog;
+    var rows = document.getElementById("tableJournal").rows;
+    for(var i=0; i<rows.length; i++) {
+        if(rows[i].classList.contains(COLOR_SELECTION))
+            idLog = rows[i].getAttribute("id").split("_")[1];
+    }
+
+    var log = this.arrPlants[idPlant].arrLogs[idLog];
+    log.timestamp = moment().toString();
+    log.date = moment(document.getElementById("dateAddLog").value, "YYYY-MM-DD");
+    log.event = document.getElementById("textEvent").value;
     this.save();
 }
 

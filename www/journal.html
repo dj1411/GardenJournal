@@ -163,7 +163,7 @@
             <div class="w3-bar-item w3-button" onclick="onclickEditLog()">edit</div>
             <div class="w3-bar-item w3-button" onclick="onclickDeleteLog()">delete</div>
         </div>
-        <div id="overlayMenuJournal" onclick="hideMenuJournal()" oncontextmenu="hideMenuJournal()" style="position: fixed; width: 100%; height: 100%; left: 0; top: 0; display: none"></div>
+        <div id="overlayMenuJournal" onclick="hideMenuJournal(); resetSelectionJournal();" oncontextmenu="hideMenuJournal(); resetSelectionJournal();" style="position: fixed; width: 100%; height: 100%; left: 0; top: 0; display: none"></div>
         
         <!-- including all script files -->
         <script type="text/javascript" src="cordova.js"></script>
