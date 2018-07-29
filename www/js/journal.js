@@ -89,6 +89,7 @@ function onclickDeletePlant() {
     var idPlant = document.getElementById("dropdownPlantListJournal").value.split("_")[1];
     if( window.confirm("Are you sure to delete " + db.arrPlants[idPlant].name + "?") ) {
         db.deletePlant();
+        sessionStorage.removeItem("SelectedPlant");
         refreshPlantListDropdown(document.getElementById("dropdownPlantListJournal"));    
         showLog();
     }
